@@ -35,12 +35,7 @@ public class Pesel {
         validate = 10 - validate;
         System.out.print(validate%10);
         System.out.print(numbers[10]);
-        if ((validate%10) == numbers[10]) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return (validate % 10) == numbers[10];
     }
 
 

@@ -7,41 +7,44 @@ import java.awt.event.ActionListener;
  * Created by Piotrek on 2017-03-26.
  */
 public class Aplikacja implements ActionListener {
-    String userPesel;
+    private String userPesel;
 
-    JFrame okno;
-    JTextField peselField;
-    JTextField dateField;
-    JTextField sexField;
-    JButton button;
+    private JFrame okno;
+    private JLabel peselLabel;
+    private JTextField peselField;
+    private JLabel dateLabel;
+    private JTextField dateField;
+    private JLabel sexLabel;
+    private JTextField sexField;
+    private JButton button;
 
 
     public Aplikacja () {
         this.okno = new JFrame();
-        okno.setSize(300, 300);
-        okno.setLayout(new BoxLayout(okno.getContentPane(), BoxLayout.Y_AXIS));
+        this.okno.setSize(300, 300);
+        this.okno.setLayout(new BoxLayout(okno.getContentPane(), BoxLayout.Y_AXIS));
 
-        JLabel peselLabel = new JLabel("Wpisz PESEL:");
+        this.peselLabel = new JLabel("Wpisz PESEL:");
         this.peselField = new JTextField();
-        JLabel dateLabel = new JLabel("Data urodzenia:");
+        this.dateLabel = new JLabel("Data urodzenia:");
         this.dateField = new JTextField();
-        JLabel sexLabel = new JLabel("Płeć:");
+        this.sexLabel = new JLabel("Płeć:");
         this.sexField = new JTextField();
-        peselField.setPreferredSize(new Dimension(200, 40));
-        dateField.setPreferredSize(new Dimension(200, 40));
-        sexField.setPreferredSize(new Dimension(200, 40));
+        this.peselField.setPreferredSize(new Dimension(200, 40));
+        this.dateField.setPreferredSize(new Dimension(200, 40));
+        this.sexField.setPreferredSize(new Dimension(200, 40));
         this.button = new JButton("Sprawdź");
 
-        okno.add(peselLabel);
-        okno.add(peselField);
-        okno.add(button);
-        okno.add(dateLabel);
-        okno.add(dateField);
-        okno.add(sexLabel);
-        okno.add(sexField);
+        this.okno.add(peselLabel);
+        this.okno.add(peselField);
+        this.okno.add(button);
+        this.okno.add(dateLabel);
+        this.okno.add(dateField);
+        this.okno.add(sexLabel);
+        this.okno.add(sexField);
 
-        okno.setVisible(true);
-        okno.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.okno.setVisible(true);
+        this.okno.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -50,10 +53,10 @@ public class Aplikacja implements ActionListener {
     }
 
     void getPeselNumber() {
-        this.button.addActionListener(this::actionPerformed);
+        this.button.addActionListener(this);
     }
 
-    void printInformation() {
+    private void printInformation() {
         if (Pesel.isPeselValid(userPesel)){
             this.peselField.setBackground(Color.green);
             this.dateField.setText(Pesel.getBirthDate(this.userPesel));
