@@ -28,14 +28,16 @@ public class Pesel {
         int validate = 0;
 
         for (i=0;i<test.length;i++){
-            System.out.print("\n" + i + " " + test[i] + " " + numbers[i]);
             validate += test[i]*numbers[i];
         }
         validate = validate%10;
         validate = 10 - validate;
-        System.out.print(validate%10);
-        System.out.print(numbers[10]);
-        return (validate % 10) == numbers[10];
+        int month = numbers[2]%2 * 10 + numbers[3];
+        System.out.println(validate % 10 + " " + numbers[10]);
+        System.out.println(month);
+        System.out.println(((validate % 10) == numbers[10]) && month < 13);
+
+        return (((validate % 10) == numbers[10]) && month < 13);
     }
 
 
