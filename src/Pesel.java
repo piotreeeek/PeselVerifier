@@ -7,8 +7,9 @@ import java.util.Calendar;
 public class Pesel {
     static boolean isPeselValid(String userPesel) {
 
-        if (userPesel.length() != 11)
+        if (userPesel.length() != 11) {
             return false;
+        }
 
         int[] numbers = new int[11];
 
@@ -24,18 +25,15 @@ public class Pesel {
         }
 
         int[] test = {1, 3, 7, 9, 1, 3, 7, 9, 1, 3};
-
         int validate = 0;
 
         for (i=0;i<test.length;i++){
             validate += test[i]*numbers[i];
         }
+
         validate = validate%10;
         validate = 10 - validate;
         int month = numbers[2]%2 * 10 + numbers[3];
-        System.out.println(validate % 10 + " " + numbers[10]);
-        System.out.println(month);
-        System.out.println(((validate % 10) == numbers[10]) && month < 13);
 
         return (((validate % 10) == numbers[10]) && month < 13);
     }
@@ -69,14 +67,8 @@ public class Pesel {
     }
     static String getSex (String userPesel) {
 
-        int[] numbers = new int[11];
+        int sexNumber = Integer.parseInt(userPesel.substring(9,10));
 
-        int i = 0;
-        for (String c : userPesel.split("")) {
-            numbers[i] = Integer.parseInt(c);
-            i++;
-        }
-
-        return (numbers[9]%2 == 0) ? "kobieta" : "meżczyzna";
+        return (sexNumber%2 == 0) ? "kobieta" : "meżczyzna";
     }
 }

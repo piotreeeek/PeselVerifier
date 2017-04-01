@@ -7,7 +7,6 @@ public class Start {
 
         Aplikacja zadanie1 = new Aplikacja();
         zadanie1.getPeselNumber();
-
-
+        
     }
 }

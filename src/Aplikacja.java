@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
  */
 public class Aplikacja implements ActionListener {
     private String userPesel;
-
     private JFrame okno;
     private JLabel peselLabel;
     private JTextField peselField;
@@ -17,7 +16,6 @@ public class Aplikacja implements ActionListener {
     private JLabel sexLabel;
     private JTextField sexField;
     private JButton button;
-
 
     public Aplikacja () {
         this.okno = new JFrame();
@@ -63,6 +61,8 @@ public class Aplikacja implements ActionListener {
             this.sexField.setText(Pesel.getSex(this.userPesel));
         }else {
             this.peselField.setBackground(Color.red);
+            this.dateField.setText("");
+            this.sexField.setText("");
         }
     }
 }
