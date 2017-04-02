@@ -1,3 +1,4 @@
+package zadanie1;
 
 /**
  * Created by Piotrek on 2017-03-26.
@@ -7,6 +8,6 @@ public class Start {
 
         Aplikacja zadanie1 = new Aplikacja();
         zadanie1.getPeselNumber();
-        
+
     }
 }
